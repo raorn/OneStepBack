@@ -1,0 +1,1019 @@
+/**********************************************/
+/* OneStepBack theme; gtk3 part               */
+/* jpsb: July 2015 - May 2017                 */
+/**********************************************/
+
+/**********************************************/
+/* Color definitions */
+/**********************************************/
+
+@define-color white_color #ffffff;
+@define-color lighter_color #d8d8d8;
+@define-color base_color #a8a8a8;
+@define-color darker_color #787878;
+@define-color black_color #000000;
+@define-color scale_color #4b6983;
+
+/**********************************************/
+/* Derived colors */
+/**********************************************/
+
+@define-color menuitem_active_color @lighter_color;
+@define-color button_active_color @darker_color;
+@define-color inset_lighter_color shade(@base_color,0.9);
+@define-color outset_lighter_color shade(@base_color,1.3);
+@define-color inset_darker_color shade(@base_color,0.5);
+
+/**********************************************/
+/* Color names curiously hardcoded in some gnome applications */
+/**********************************************/
+
+@define-color theme_base_color @lighter_color;
+@define-color theme_text_color @black_color;
+@define-color theme_bg_color @base_color;
+@define-color theme_fg_color @black_color;
+@define-color theme_selected_bg_color @darker_color;
+@define-color theme_selected_fg_color @lighter_color;
+@define-color theme_tooltip_bg_color @base_color;
+@define-color theme_tooltip_fg_color @black_color;
+
+/**********************************************/
+/* headerbar */
+/**********************************************/
+
+headerbar {
+    background-color: @black_color; /* fond de barre */
+    color: @black_color; /* séparations verticales dans la barre */
+}
+
+.titlebar .title {
+    color: @white_color;
+    font-weight: bold;
+}
+
+.titlebar .title:backdrop {
+    color: @base_color;
+}
+
+headerbar .pathbar { /* dconf-editor */
+    color: @white_color;
+    font-weight: bold;
+}
+
+/* ombres des fenêtres */
+decoration {
+    /* arrondi des angles la barre de titre */
+    border-radius: 4px 4px 0px 0px;
+
+    /* the resize cursor area */
+    margin: 10px;
+
+    /* box-shadow: [inset] horizontal_offset vertical_offset blur_radius color; */
+    box-shadow: 0 3px 3px 1px @darker_color, 0 0 0 1px @black_color;
+}
+
+decoration:backdrop {
+    box-shadow: 0 3px 3px 1px @darker_color, 0 0 0 1px @black_color;
+}
+
+/***********************************************/
+/* general */
+/**********************************************/
+
+* {
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-has-secondary-forward-stepper: false;
+    -GtkScrollbar-has-secondary-backward-stepper: true;
+
+    /* -GtkWidget-window-dragging: true;*/  /* behrz */
+    /* seems to break things in gnumeric: Ingo S. */
+	}
+
+.background {
+    background-color: @base_color;
+    color: @black_color;
+}
+
+/**********************************************/
+/* button */
+/**********************************************/
+
+button {
+    background-color: @base_color;
+    color: @black_color;
+    padding: 3px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+button:active, button:checked {
+    background-color: @button_active_color;
+    border-left: 1px solid @black_color;
+    border-top: 1px solid @black_color;
+    border-right: 1.3px solid @inset_lighter_color;
+    border-bottom: 1.3px solid @inset_lighter_color;
+}
+
+button:disabled {
+    color: @darker_color;
+}
+
+headerbar button, headerbar button:active, headerbar button:selected {
+    border: none;
+    background-color: @black_color; /* fond de bouton de headerbarre */
+    color: @white_color; /* couleur int bouton de barre */
+}
+
+headerbar button:checked { /* bouton de headerbarre actif */
+    border: none;
+    background-color: @black_color;
+    color: @white_color;
+    font-weight: bold;
+}
+
+/**********************************************/
+/* menu */
+/**********************************************/
+
+menubar {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-bottom: 1.3px solid @black_color;
+    border-right: 1.3px solid @black_color;
+    padding: 0px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+menu {
+    padding: 1px;
+    padding-right: 2px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-bottom: 1.3px solid @black_color;
+    border-right: 1.3px solid @black_color;
+}
+
+menuitem {
+    padding-left: 8px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+menu:active, menu:hover{
+    background-color: @menuitem_active_color;
+    color: @black_color;
+}
+
+menuitem:active, menuitem:hover {
+    background-color: @menuitem_active_color;
+    color: @black_color;
+}
+
+combobox menu {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-bottom: 1px solid @black_color;
+    border-right: 1px solid @black_color;
+}
+
+/**********************************************/
+/* toolbar */
+/**********************************************/
+
+toolbar {
+    padding: 1px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+toolbar button {
+    border: 1px solid @base_color;
+}
+
+toolbar button:hover {
+    border-left: 1px solid  @lighter_color;
+    border-top: 1px solid @lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+toolbar button:checked,
+toolbar button:active {
+    background-color: @button_active_color;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1.3px solid  @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+
+toolbar button:active:hover {
+    background-color: @base_color;
+}
+
+toolbar button:checked:hover {
+    background-color: @base_color;
+}
+
+/**********************************************/
+/* scale */
+/**********************************************/
+ 
+scale trough {
+    margin: 1px;
+    background-color: @darker_color;
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid  @inset_darker_color;
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+scale.horizontal trough {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+scale.vertical trough {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+scale.horizontal slider {
+    min-width: 29px;
+    min-height: 12px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/slider_horizontal_thumb.png");
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+scale.vertical slider {
+    min-width: 12px;
+    min-height: 29px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/slider_vertical_thumb.png");
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+scale indicator {
+    min-width: 1px;
+    min-height: 5px;
+    background: @black_color;
+}
+
+/**********************************************/
+/* progressbar */
+/**********************************************/
+
+progressbar {
+    color: @black_color;
+    background-color: @base_color;
+}
+
+progressbar.vertical trough {
+    min-width: 20px;
+    background-color: @darker_color;
+    color: @black_color;
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid  @inset_darker_color;
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+progressbar.horizontal trough {
+    min-height: 18px;
+    background-color: @darker_color;
+    color: @black_color;
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid  @inset_darker_color;
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+progressbar.vertical progress {
+    min-width: 16px;
+    background-color: @scale_color;
+    border-left: 1px solid shade(@scale_color,1.3);
+    border-top: 1px solid shade(@scale_color,1.3);
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+progressbar.horizontal progress {
+    min-height: 14px;
+    background-color: @scale_color;
+    border-left: 1px solid shade(@scale_color,1.3);
+    border-top: 1px solid shade(@scale_color,1.3);
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+progressbar.vertical text {
+    margin-right: 25px;
+}
+
+/* progressbars are different in GtkTreeView (monitor) */
+treeview.view.progressbar {
+    min-height: 14px;
+    background-color: @scale_color;
+    border-left: 1px solid shade(@scale_color,1.3);
+    border-top: 1px solid shade(@scale_color,1.3);
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+treeview.view.trough,
+treeview.view.trough:selected {
+    min-height: 18px;
+    background-color: @darker_color;
+    color: @black_color;
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid  @inset_darker_color;
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+/**********************************************/
+/* scrollbar */
+/**********************************************/
+
+scrollbar trough {
+	background-color: @darker_color;
+    min-width: 14px;
+    min-height: 14px;
+    border-left: 1px solid @inset_darker_color;
+    border-top: 1px solid  @inset_darker_color;
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+scrollbar slider {
+    background-color: @base_color;
+    min-width: 12px;
+    min-height: 12px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/scrollbar_thumb.png");
+}
+
+scrollbar.vertical slider {
+	min-height: 30px;
+}
+
+scrollbar.horizontal slider {
+	min-width: 30px;
+}
+
+scrollbar.vertical button.up {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	padding-left: 2px;
+	padding-right: 3px;
+	padding-top: 3px;
+	padding-bottom: 5px;
+    min-height: 4px;
+    min-width: 7px;
+	-gtk-icon-source: url("../img/arrow-up.png");
+}
+
+scrollbar.vertical button.up:active {
+    background-color: @darker_color;
+    border-left: 1.3px solid @black_color;
+    border-top: 1.3px solid @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+	-gtk-icon-source: url("../img/arrow-up.png");
+}
+
+scrollbar.vertical button.up:disabled {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 3px;
+	padding-bottom: 4px;
+    min-height: 5px;
+	-gtk-icon-source: url("../img/arrow-up-disabled.png");
+}
+
+scrollbar.vertical button.down {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    margin-left: 1px;
+    margin-right: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+	padding-left: 2px;
+	padding-right: 3px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+    min-height: 4px;
+    min-width: 7px;
+	-gtk-icon-source: url("../img/arrow-down.png");
+}
+
+scrollbar.vertical button.down:active {
+    background-color: @darker_color;
+    border-left: 1.3px solid @black_color;
+    border-top: 1.3px solid @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+	-gtk-icon-source: url("../img/arrow-down.png");
+}
+
+scrollbar.vertical button.down:disabled {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+    min-height: 5px;
+	-gtk-icon-source: url("../img/arrow-down-disabled.png");
+}
+
+scrollbar.horizontal button.up {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+	padding-left: 3px;
+	padding-right: 5px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+    min-height: 7px;
+    min-width: 4px;
+	-gtk-icon-source: url("../img/arrow-left.png");
+}
+
+scrollbar.horizontal button.up:active {
+    background-color: @darker_color;
+    border-left: 1.3px solid @black_color;
+    border-top: 1.3px solid @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+	-gtk-icon-source: url("../img/arrow-left.png");
+}
+
+scrollbar.horizontal button.up:disabled {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    min-width: 6px;
+	-gtk-icon-source: url("../img/arrow-left-disabled.png");
+}
+
+scrollbar.horizontal button.down {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+    min-height: 7px;
+    min-width: 4px;
+	-gtk-icon-source: url("../img/arrow-right.png");
+}
+
+scrollbar.horizontal button.down:active {
+    background-color: @darker_color;
+    border-left: 1.3px solid @black_color;
+    border-top: 1.3px solid @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+	-gtk-icon-source: url("../img/arrow-right.png");
+}
+
+scrollbar.horizontal button.down:disabled {
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+    min-width: 6px;
+	-gtk-icon-source: url("../img/arrow-right-disabled.png");
+}
+/**********************************************/
+/* entry, treeview, textview, iconwiew */
+/**********************************************/
+
+entry {
+    background-color: @lighter_color;
+    color: @black_color;
+    padding: 2px;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1.3px solid  @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+
+entry:disabled {
+    background-color: @darker_color;
+    color: @black_color;
+}
+
+label:disabled {
+    color: @lighter_color;
+}
+
+treeview {
+    background-color: @lighter_color;
+}
+
+textview selection {
+    background-color: @darker_color;
+    color: @lighter_color;
+}
+
+textview {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
+selection {
+    background-color: @darker_color;
+    color: @lighter_color;
+}
+
+iconview {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
+/**********************************************/
+/* frame, notebook, tab */
+/**********************************************/
+
+notebook {
+    background-color: @base_color;
+    color: @black_color;
+    padding: 0px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+notebook frame {
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+notebook tab {
+    background-color: @darker_color;
+    border: 1px solid @black_color;
+	padding: 3px;
+	margin: 0px;
+}
+
+notebook tab:checked,
+notebook tab:active {
+    background-color: @base_color;
+    border: 1px solid @base_color;
+}
+
+frame {
+    background-color: @base_color;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1px solid  @black_color;
+    border-right: 1px solid @outset_lighter_color;
+    border-bottom: 1px solid @outset_lighter_color;
+    padding: 5px;
+}
+
+/**********************************************/
+/* list, row */
+/**********************************************/
+
+list {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+    padding: 7px;
+    background-color: @lighter_color;
+}
+
+row {
+    background-color: @lighter_color;
+    padding: 5px;
+    border: none;
+    }
+
+row:selected {
+    background-color: @darker_color;
+    color: @lighter_color;
+}
+
+list row:active {
+    background-color: @darker_color;
+}
+
+
+/**********************************************/
+/* separator */
+/**********************************************/
+
+separator.vertical {
+	margin: 0px;
+	padding: 0px;
+	border-left: 1px solid @darker_color;
+	border-right: 1px solid @lighter_color;
+}
+
+separator.horizontal {
+	margin: 0px;
+	padding: 0px;
+	border-top: 1px solid @darker_color;
+	border-bottom: 1px solid @lighter_color;
+}
+
+toolbar separator {
+	margin: 5px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	border-left: 1px solid @inset_darker_color;
+	border-right: 1px solid @lighter_color;
+}
+
+menu separator {
+	margin: 0px;
+	padding: 0px;
+	border-top: 1px solid @inset_darker_color;
+	border-bottom: 1px solid @inset_lighter_color;
+}
+
+paned.vertical separator {
+    border: none;
+	padding: 0px;
+    background-image: url("../img/separator_horizontal.png");
+    background-position: center center;
+	background-repeat: no-repeat;
+}
+
+paned.horizontal separator {
+    border: none;
+	padding: 0px;
+    background-image: url("../img/separator_vertical.png");
+    background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* separator in nautilus side panel */
+paned list separator.horizontal {
+	min-height:1px;
+    background-image: none;
+    border: none;
+	border-top: 1px solid @base_color;
+}
+
+/**********************************************/
+/* check, radio */
+/**********************************************/
+
+checkbutton, radiobutton {
+    color: @black_color;
+    background-color: @base_color;
+}
+
+/*notebook checkbutton, notebook radiobutton {
+    background-color: @lighter_color;
+}*/
+
+checkbutton:disabled, radiobutton:disabled {
+    color: @lighter_color;
+}
+
+check {
+    padding: 0px;
+    border: none;
+    margin: 5px;
+    min-width: 13px;
+    min-height: 13px;
+	-gtk-icon-source: url("../img/check-unchecked.png");
+}
+
+check:checked {
+	-gtk-icon-source: url("../img/check-checked.png");
+}
+
+radio {
+    padding: 0px;
+    border: none;
+    margin: 5px;
+    min-width: 13px;
+    min-height: 13px;
+	-gtk-icon-source: url("../img/radio-unchecked.png");
+}
+
+radio:checked {
+    min-width: 13px;
+    min-height: 13px;
+	-gtk-icon-source: url("../img/radio-checked.png");
+}
+
+check:disabled {
+    min-width: 11px;
+    min-height: 11px;
+	-gtk-icon-source: url("../img/check-disabled-unchecked.png");
+}
+
+radio:disabled {
+    min-width: 11px;
+    min-height: 11px;
+	-gtk-icon-source: url("../img/radio-disabled-unchecked.png");
+}
+
+check:disabled:checked {
+	-gtk-icon-source: url("../img/check-disabled-checked.png");
+    min-width: 11px;
+    min-height: 11px;
+}
+
+radio:disabled:checked {
+	-gtk-icon-source: url("../img/radio-disabled-checked.png");
+    min-width: 11px;
+    min-height: 11px;
+}
+
+/* check and radio in menu */
+menuitem check, menuitem radio {
+	-gtk-icon-source: url("../img/menuitem-transparent.png");
+    min-width: 8px;
+    min-height: 7px;
+}
+
+menuitem check:checked {
+	-gtk-icon-source: url("../img/menuitem-check-checked.png");
+    min-width: 8px;
+    min-height: 7px;
+}
+
+menuitem check:disabled:checked {
+	-gtk-icon-source: url("../img/menuitem-check-checked-disabled.png");
+    min-width: 8px;
+    min-height: 7px;
+}
+
+menuitem radio:checked {
+    min-width: 5px;
+    min-height: 5px;
+	-gtk-icon-source: url("../img/menuitem-radio-checked.png");
+}
+
+menuitem radio:disabled:checked {
+    min-width: 5px;
+    min-height: 5px;
+	-gtk-icon-source: url("../img/menuitem-radio-checked-disabled.png");
+}
+
+/* handbrake/defaults audio; tweaktools/bureau*/
+list row checkbutton, list row radiobutton {
+    background-color: transparent;
+    color: @black_color;
+}
+
+/* handbrake/defaults audio; tweaktools/bureau */
+list row checkbutton label:disabled,
+list row radiobutton label:disabled,
+list row check:disabled,
+list row radio:disabled {
+    background-color: @transparent;
+    color: @darker_color;
+    min-width: 11px;
+    min-height: 11px;
+	-gtk-icon-source: url("../img/radio-disabled-unchecked.png");
+}
+
+
+/**********************************************/
+/* popover */
+/**********************************************/
+
+popover {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+popover modelbutton {
+	padding: 0px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+popover modelbutton:hover, popover modelbutton:active {
+    background-color: @lighter_color;
+}
+
+/**********************************************/
+/* switch */
+/**********************************************/
+
+switch {
+	font-weight: bold;
+    background-color: @base_color;
+    color: @black_color;
+    border-left: 1.3px solid @black_color;
+    border-top: 1.3px solid @black_color;
+    border-right: 1.3px solid @lighter_color;
+    border-bottom: 1.3px solid @lighter_color;
+}
+
+switch:checked {
+   background-color: @scale_color;
+}
+
+switch slider {
+    background-color: @base_color;
+    padding: 1px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/scrollbar_thumb.png");
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+switch:disabled {
+    background-color: @darker_color;
+    color: @base_color;
+}
+
+switch:disabled slider {
+    background-color: @darker_color;
+    border-left: 1px solid @base_color;
+    border-top: 1px solid @base_color;
+}
+
+/**********************************************/
+/* arrow */
+/**********************************************/
+
+combobox arrow {  
+	min-height: 19px;
+	min-width: 19px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/combobox-arrow-down.png");
+}
+
+combobox arrow:disabled {  
+    background-image: url("../img/combobox-arrow-down-disabled.png");
+}
+
+menuitem arrow {
+	min-height: 15px;
+	min-width: 8px;
+	margin-left: 15px; /* brasero */
+	-gtk-icon-source: url("../img/menuitem-arrow-right.png");
+}
+
+menuitem arrow:disabled {
+	-gtk-icon-source: url("../img/menuitem-arrow-right-disabled.png");
+}
+
+expander arrow {
+	min-width: 16px;
+	min-height: 16px;
+	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+	-gtk-icon-transform: rotate(-90deg);
+	color: @black_color;
+}
+
+expander arrow:checked {
+	-gtk-icon-transform: unset;
+}
+
+popover arrow.right {
+	min-height: 15px;
+	min-width: 8px;
+	-gtk-icon-source: url("../img/menuitem-arrow-right.png");
+}
+
+popover arrow.left {
+	min-height: 15px;
+	min-width: 8px;
+	-gtk-icon-source: url("../img/menuitem-arrow-left.png");
+}
+
+/**********************************************/
+/* calendar */
+/**********************************************/
+
+calendar {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
+calendar:selected {
+    background-color: @darker_color;
+    color: @lighter_color;
+}
+
+calendar:indeterminate {
+    color: @inset_lighter_color;
+}
+
+/**********************************************/
+/* tweaks */
+/**********************************************/
+
+/* selection in evince */
+.view:selected  {
+    background-color: @darker_color;
+    color: @lighter_color;
+}
+
+/* avoid borders on the desktop when managed by nautilus */
+nautilus-desktop-window *{
+  border: none;
+}
+
+/* icon color selected and unfocused in nautilus */
+.view:active {
+     background-color: @darker_color;
+}
+
+/* selections in firefox use fix color names ! */
+*:selected,
+*:selected:focus {
+	background-color: @theme_selected_bg_color;
+	color: @theme_selected_fg_color;
+}
+
+/* background of nautilus icon window */
+/*.nautilus-window, .nautilus-window notebook {
+  background-color: @lighter_color;
+}*/
+
+/*
+view row:nth-child(even) {
+	background-color: green;
+} 
+treeview row:nth-child(even)
+{
+	background-color: green;
+} 
+*/
+
+/*
+GTK_DEBUG=interactive myexcutable
+*/
+
+
+
+
+
+
+
+
+
+
+/**********************************************/
+/* The End */
+/**********************************************/
+
+
+
+
+
+

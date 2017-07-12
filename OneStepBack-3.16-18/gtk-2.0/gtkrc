@@ -1,0 +1,298 @@
+########################################
+# OneStepBack Gtk2 theme               #
+# jpsb: July-November 2015    #
+########################################
+
+########################################
+# Color definitions
+########################################
+
+gtk-color-scheme = "white_color:#ffffff
+lighter_color:#c8c8c8
+base_color:#a8a8a8
+darker_color:#787878
+black_color:#000000
+selected_color:#4b6983
+"
+
+########################################
+# Styles
+########################################
+
+style "default" {
+
+    base[NORMAL]        = @lighter_color
+    text[NORMAL]        = @black_color
+    bg[NORMAL]          = @base_color
+    fg[NORMAL]          = @black_color
+
+    base[PRELIGHT]      = @white_color
+    text[PRELIGHT]      = @black_color
+    bg[PRELIGHT]        = @lighter_color
+    fg[PRELIGHT]        = @black_color
+
+    base[SELECTED]      = @selected_color
+    text[SELECTED]      = @white_color
+    bg[SELECTED]        = @selected_color
+    fg[SELECTED]        = @white_color
+
+    base[ACTIVE]        = @selected_color
+    text[ACTIVE]        = @white_color
+    bg[ACTIVE]          = @darker_color
+    fg[ACTIVE]          = @black_color
+
+    base[INSENSITIVE]   = @darker_color
+    text[INSENSITIVE]   = @black_color
+    bg[INSENSITIVE]     = @base_color
+    fg[INSENSITIVE]     = @darker_color
+
+    GtkWidget::focus-line-width = 0
+    GtkWidget::link-color = @black_color
+    GtkWidget::visited-link-color = @darker_color
+    GtkScrollbar::min-slider-length = 30
+
+    GtkScrollbar::has_backward_stepper = 0
+    GtkScrollbar::has_forward_stepper = 1
+    GtkScrollbar::has_secondary_forward_stepper = 0
+    GtkScrollbar::has_secondary_backward_stepper = 1
+
+}
+
+style "scalebar-scrollbar" {
+
+    bg[NORMAL]          = @base_color
+    fg[NORMAL]          = @black_color
+
+    bg[PRELIGHT]        = @lighter_color
+
+    bg[ACTIVE]          = @darker_color
+
+    engine "pixmap" {
+
+        image {
+            function        = SLIDER
+            state           = NORMAL
+            file            = "../img/scrollbar_horizontal.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = HORIZONTAL
+        }
+        image {
+            function        = SLIDER
+            state           = INSENSITIVE
+            file            = "../img/scrollbar_horizontal.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = HORIZONTAL
+        }
+        image {
+            function        = SLIDER
+            state           = PRELIGHT
+            file            = "../img/scrollbar_horizontal_prelight.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = HORIZONTAL
+        }
+        image {
+            function        = SLIDER
+            state           = ACTIVE
+            file            = "../img/scrollbar_horizontal_prelight.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = HORIZONTAL
+        }
+        image {
+            function        = SLIDER
+            state           = NORMAL
+            file            = "../img/scrollbar_vertical.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = VERTICAL
+        }
+        image {
+            function        = SLIDER
+            state           = INSENSITIVE
+            file            = "../img/scrollbar_vertical.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = VERTICAL
+        }
+        image {
+            function        = SLIDER
+            state           = PRELIGHT
+            file            = "../img/scrollbar_vertical_prelight.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = VERTICAL
+        }
+        image {
+            function        = SLIDER
+            state           = ACTIVE
+            file            = "../img/scrollbar_vertical_prelight.png"
+            border          = { 2, 2, 2, 2 }
+            stretch         = TRUE
+            overlay_file    = "../img/scrollbar_thumb.png"
+            overlay_stretch = FALSE
+            orientation     = VERTICAL
+        }
+    }
+}
+
+style "progressbar" {
+
+    bg[NORMAL]          = @darker_color
+    fg[NORMAL]          = @black_color
+
+    bg[PRELIGHT]        = @selected_color
+    fg[PRELIGHT]        = @white_color
+
+}
+
+style "menuitem" {
+
+    text[NORMAL]        = @black_color
+    bg[NORMAL]          = @darker_color
+    fg[NORMAL]          = @black_color
+
+    text[PRELIGHT]      = @white_color
+    bg[PRELIGHT]        = @selected_color
+    fg[PRELIGHT]        = @white_color
+
+}
+
+style "check-radio" {
+
+    bg[PRELIGHT]        = @base_color
+
+    base[INSENSITIVE]   = @lighter_color
+    text[INSENSITIVE]   = @darker_color
+    fg[INSENSITIVE]     = @base_color
+}
+
+style "menubar" {
+
+    fg[PRELIGHT]        = @white_color  # menu sélectionné geogebra
+
+}
+
+style "paned" {
+
+    bg[PRELIGHT]        = @base_color   # séparateurs mobiles hover
+
+}
+
+style "gimp-loadingbar" {
+
+    bg[PRELIGHT]        = @selected_color   # loadingbar de gimp !
+
+}
+
+########################################
+# Styles for testing
+########################################
+
+style "red" {
+
+    base[NORMAL]        = "red"
+    text[NORMAL]        = "red"
+    fg[NORMAL]          = "red"
+    bg[NORMAL]          = "red"
+
+    base[PRELIGHT]      = "red"
+    text[PRELIGHT]      = "red"
+    bg[PRELIGHT]        = "red"
+    fg[PRELIGHT]        = "red"
+
+    base[SELECTED]      = "red"
+    text[SELECTED]      = "red"
+    bg[SELECTED]        = "red"
+    fg[SELECTED]        = "red"
+
+    base[ACTIVE]        = "red"
+    text[ACTIVE]        = "red"
+    bg[ACTIVE]          = "red"
+    fg[ACTIVE]          = "red"
+
+    base[INSENSITIVE]   = "red"
+    text[INSENSITIVE]   = "red"
+    bg[INSENSITIVE]     = "red"
+    fg[INSENSITIVE]     = "red"
+
+}
+
+style "test" {
+
+    base[NORMAL]        = "aqua"
+    text[NORMAL]        = "green"
+    bg[NORMAL]          = "magenta"
+    fg[NORMAL]          = "blue"
+
+    base[PRELIGHT]      = "green"
+    text[PRELIGHT]      = "red"
+    bg[PRELIGHT]        = "lime"
+    fg[PRELIGHT]        = "maroon"
+
+    base[SELECTED]      = "navy"
+    text[SELECTED]      = "green"
+    bg[SELECTED]        = "olive"
+    fg[SELECTED]        = "purple"
+
+    base[ACTIVE]        = "red"
+    text[ACTIVE]        = "green"
+    bg[ACTIVE]          = "teal"
+    fg[ACTIVE]          = "yellow"
+
+    base[INSENSITIVE]   = "purple"
+    text[INSENSITIVE]   = "green"
+    bg[INSENSITIVE]     = "yellow"
+    fg[INSENSITIVE]     = "aqua"
+
+}
+
+########################################
+# Widgets
+########################################
+
+class "*" style "default"
+widget_class "*Scale*" style "scalebar-scrollbar"
+widget_class "*Scrollbar*" style "scalebar-scrollbar"
+widget_class "*ProgressBar*" style "progressbar"
+widget_class "*MenuItem*" style "menuitem"
+widget_class "*MenuBar*" style "menubar"
+widget_class "*Paned*" style "paned"
+class "GtkCheck*" style "check-radio"
+class "GtkRadio*" style "check-radio"
+widget_class "*Gimp*Paned*Bar*" style "gimp-loadingbar"
+
+#widget_class "*Link*" style "red"
+#widget_class "*Button*" style "red"
+#widget_class "*ComboBox*" style "red"
+#widget_class "*ToggleButton*" style "red"
+#widget_class "*Separator*" style "red"
+#widget_class "*Entry*" style "red"
+#widget_class "*ToolButton*" style "red"
+#widget_class "*Option*" style "red"
+#widget_class "*ScaleButton*" style "red"
+#widget_class "*List*" style "red"
+#widget_class "*Notebook*" style "test"
+#widget_class "*Frame*" style "red"
+#widget_class "*Label*" style "red"
+#widget_class "*Window" style "red"
+
+# jpsb le 12 sept 2015: bug curieux: la barre d'avancement de xsane ne respecte la couleur demandée qu'après un redémarrage du thème, sinon la couleur est lime !
+
+# qt4 et flèches d'ascenseurs incompatible avec engine "pixmap"

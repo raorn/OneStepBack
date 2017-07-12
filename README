@@ -1,0 +1,90 @@
+[b] OneStepBack README [/b]
+
+OneStepBack is a Gtk 2 and 3 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
+
+It is developed from scratch, is light and minimal, uses only three shades of grays and one color. That was the challenge.
+
+It has been tested on Arch Linux with Gnome-Shell, Gtk+ from 3.16 to 3.22, a good amount of Gtk2 applications and some Gtk3 applications. A lot of widget controls are still missing and it is not tested at all with unity or xfce.
+
+The author is Jean-Pierre Bucciol <jpsspam[at]free.fr>.
+
+This is a GPL 3 free software. Feel free to change and share the code.
+
+This is the version 0.93, released in May 2017.
+
+To install the theme, unzip the archive and copy the theme in your theme directory. (For gtk 3.16 and 3.18 users, the archive contents also a directory called OneStepBack-3.16-18: extract and copy it in your theme directory.)
+
+[b] Known bugs: [/b]
+
+- gtk3: in firefox: arrow buttons shape and colors: waiting for a firefox update.
+
+[b] ChangeLog [/b]
+
+version 0.93: May 2017
+- gtk3: fix a color bug in nautilus for selected and unfocused icons
+- gtk3: fix a color bug in firefox gtk3
+- change for a blue-gray color for progress bars and switch
+
+version 0.92: November 2016
+- gtk3: fix a color bug in headerbar pathbar
+- gtk3: add a left margin to arrow in menus
+- gtk2: fix wrong background color in rox when switching theme
+- gtk3: improve css syntax for font definitions
+
+version 0.91: September 2016
+- gtk3: disable the GtkWidget-window-dragging function that breaks things in gnumeric (thanks Ingo S.)
+
+version 0.9: August 2016
+- add support for easy color changes
+- gtk3: add a minimal lenght to the scrollbar sliders
+- gtk3: improve arrows design in scrollbar when disabled
+
+version 0.8 : April 2016
+- gtk3: fix a bug in desktop borders when nautilus manages the desktop
+- gtk3: more consistant design of the scrollbar arrow buttons
+- gtk3: add support for scale indicators
+- gtk3: fix bug for scale sliders overpassing trough
+- gtk3: fix a bug with labels of scale bars
+- gtk3: add support for arrows in popover menus
+- gtk3: change behaviour of the checked button in hea.derbar 
+- gtk3: add basic support for calendar and iconview widgets
+- gtk3: fix a color bug for radiobutton label when disabled in list
+- gtk3: add support for expander arrows when active
+
+version 0.7 : April 2016
+- gtk3: port to gtk 3.20: gtk3 part rebuild from scratch !
+- orange progress bar color
+- gray active widgets
+- no more highlight on hover
+
+version 0.6 : November 2015
+- gtk3: improve borders of menus (thanks behrz)
+
+version 0.5 : October 2015
+- gtk3: improve borders/shadows to better match the gtk2 part (thanks behrz)
+- gtk3: improve switch borders
+- fix some colors and rocking in toolbar buttons
+- change borders of scrollbar sliders to match the new button shadows
+- gtk2: better centering of the scrollbar thumb
+- gtk3: fix a padding problem in gedit open document popover (thanks to bd209ocp)
+
+version 0.4: October 2015:
+- gtk3: fix some color and padding tweeks for nautilus 3.18
+- add arrow buttons to scrollbars
+- gtk3: test with gtk 3.18: ok
+
+version 0.3: October 2015:
+- gtk2: fix shadow glitchs in the scrollbar design
+- add a shell script to easily change the colors of the theme
+- gtk3: improve calculation of shadows on buttons
+
+version 0.2: September 2015:
+- gtk3: fix borders glitchs in menus
+- gtk3: improve borders of the embossed widgets
+- gtk3: define help colors for borders
+- gtk3: fix :hover colors on switchs
+- gtk3: add support for gnome-logs selections
+- fix color of insensitive combobox and check and radio buttons labels
+- gtk2: fix color of gimp loading bar
+
+version 0.1: August 2015: initial version

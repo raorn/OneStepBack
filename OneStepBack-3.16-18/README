@@ -1,0 +1,53 @@
+### OneStepBack README ###
+
+OneStepBack is a Gnome 2 and 3 theme with some colors and embossed widgets inspired by the good old NextStep look. I'm old.
+
+OneStepBack-lighter and OneStepBack-win are colors variations automagically derived from the genuine theme: the first uses lighter grays and the second more windowish colors.
+
+The whole is developed from scratch, is light and minimal, uses only four shades of grays and colors. That was the challenge.
+
+It has been tested on Arch Linux with Gnome-Shell, Gnome 3.16 and 3.18, a good amount of Gtk2 applications and only a few Gtk3 applications. A lot of widget controls are still missing and it is not tested at all with unity or xfce.
+
+The author is Jean-Pierre Bucciol <jpsspam[at]free.fr>.
+
+This is a GPL 3 free software. Feel free to change and share the code.
+
+This is the version 0.7, released in XXX 2015.
+For installation, unzip the archive and copy the themes in your theme directory.
+
+### ChangeLog ###
+
+version 0.7 : XXX 2015
+- OneStepBack comes now in three variations of colors: the original OpenStep base color, a lighter color theme and a more windowish color theme.
+
+version 0.6 : November 2015
+- improve borders of menus in gtk3 part (thanks behrz).
+
+version 0.5 : October 2015
+- improve borders/shadows in gtk3 part to better match the gtk2 part (thanks behrz).
+- improve switch borders in gtk3 part.
+- fix some colors and rocking in toolbar buttons.
+- change borders of scrollbar sliders to match the new button shadows.
+- better centering of the scrollbar thumb in gtk2 part.
+- fix a padding problem in gedit open document popover (thanks to bd209ocp).
+
+version 0.4: October 2015:
+- fix some color and padding tweeks for nautilus 3.18
+- add arrow buttons to scrollbars
+- test with gtk 3.18: ok.
+
+version 0.3: October 2015:
+- fix shadow glitchs in the scrollbar design in gtk2 part.
+- add a shell script to easily change the colors of the theme.
+- improve calculation of shadows on buttons in gtk3 part.
+
+version 0.2: September 2015:
+- fix borders glitchs in gtk3 menus.
+- improve borders of the embossed widgets in gtk3 part.
+- define help colors for borders in gtk3 part.
+- fix :hover colors on switchs in gtk3 part.
+- add support for gnome-logs selections in gtk3 part.
+- fix color of insensitive combobox and check and radio buttons labels.
+- fix color of gimp loading bar
+
+version 0.1: August 2015: initial version.

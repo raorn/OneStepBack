@@ -1,0 +1,636 @@
+/**********************************************
+ OneStepBack Gtk3 theme
+ jpsb: July-November 2015
+***********************************************/
+
+/**********************************************/
+/* Color definitions */
+/**********************************************/
+
+@define-color white_color #ffffff;
+@define-color lighter_color #c8c8c8;
+@define-color base_color #a8a8a8;
+@define-color darker_color #787878;
+@define-color black_color #000000;
+@define-color selected_color #4b6983;
+
+/**********************************************/
+/* Border colors */
+/**********************************************/
+
+@define-color inset_lighter_color shade(@base_color,0.9);
+@define-color outset_lighter_color shade(@base_color,1.3);
+
+/**********************************************/
+/* Color names curiously hardcoded in some gnome applications */
+/**********************************************/
+
+@define-color theme_base_color @lighter_color;
+@define-color theme_text_color @black_color;
+@define-color theme_bg_color @base_color;
+@define-color theme_fg_color @black_color;
+@define-color theme_selected_bg_color @selected_color;
+@define-color theme_selected_fg_color @white_color;
+@define-color theme_tooltip_bg_color @base_color;
+@define-color theme_tooltip_fg_color @black_color;
+
+/**********************************************/
+/* Window GtkHeaderBar */
+/**********************************************/
+
+.titlebar .title {
+    color: @white_color;
+    font: bold;
+}
+
+.titlebar .title:backdrop {
+    color: @base_color;
+}
+
+GtkHeaderBar {
+    background-color: @black_color; /* fond de barre */
+    color: @black_color; /* séparations verticales dans la barre */
+}
+
+GtkHeaderBar .button {
+    border: none;
+    background-color: @black_color; /* fond de bouton de barre */
+    color: @white_color; /* couleur int bouton de barre */
+}
+
+GtkHeaderBar .button:checked { /* bouton de barre sél */
+    border: none;
+    background-color: @black_color; /* @selected_color */
+    color: @white_color;
+}
+
+GtkHeaderBar .button:hover { /* bouton de barre hover */
+    border: none;
+    background-color: @black_color;
+    color: @white_color;
+}
+
+GtkHeaderBar .button:active { /* bouton de barre cliqué */
+    border: none;
+    background-color: @black_color;
+    color: @darker_color;
+}
+
+/* ombres des fenêtres */
+.window-frame {
+    /* arrondi des angles la barre de titre */
+    border-radius: 4px 4px 0px 0px;
+
+    /* the resize cursor area */
+    margin: 10px;
+
+    /* box-shadow: [inset] horizontal_offset vertical_offset blur_radius color; */
+    box-shadow: 0 3px 3px 1px @darker_color, 0 0 0 1px @black_color;
+}
+
+.window-frame:backdrop {
+    box-shadow: 0 3px 3px 1px @darker_color, 0 0 0 1px @black_color;
+}
+
+/***********************************************/
+/* General Widget */
+/**********************************************/
+
+* {
+    -GtkScrollbar-min-slider-length: 30;
+    -GtkProgressBar-min-horizontal-bar-height: 20;
+    -GtkProgressBar-min-vertical-bar-width: 20;
+
+    -GtkScrollbar-has-backward-stepper: false;
+    -GtkScrollbar-has-forward-stepper: true;
+    -GtkScrollbar-has-secondary-forward-stepper: false;
+    -GtkScrollbar-has-secondary-backward-stepper: true;
+
+    -GtkWidget-window-dragging: true; /* behrz */
+    -GtkMenuItem-arrow-scaling: 0.65; /* behrz */
+}
+
+/**********************************************/
+/* Widgets */
+/**********************************************/
+
+.background {
+    background-color: @base_color;
+    color: @black_color;
+}
+
+.button {
+    background-color: @base_color;
+    color: @black_color;
+    padding: 3px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.button:hover {
+    background-color: @lighter_color;
+    border-left: 1px solid @white_color;
+    border-top: 1px solid @white_color;
+}
+
+.button:active,
+.button:checked {
+    background-color: @darker_color;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1.3px solid  @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+
+.button:insensitive {
+    color: @darker_color;
+}
+
+.entry {
+    background-color: @lighter_color;
+    padding: 2px;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1.3px solid  @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+
+.entry:selected {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+.entry:insensitive {
+    background-color: @darker_color;
+    color: @black_color;
+}
+
+/* Commentées car cela embête les combobox */
+/*
+ * .cell {
+    background-color: @lighter_color ;
+    color: @black_color;
+}
+
+.cell:selected {
+    background-color: @selected_color ;
+    color: @white_color;
+}
+*/
+
+.toolbar {
+    padding: 1px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.toolbar .button {
+    /* fix the rocking of the button. hum: more a hack than else */
+    border: 1px solid @base_color;
+}
+
+.toolbar .button:hover {
+    background-color: @lighter_color;
+    border-left: 1px solid  @white_color;
+    border-top: 1px solid @white_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.toolbar .button:checked,
+.toolbar .button:active {
+    background-color: @darker_color;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1.3px solid  @black_color;
+    border-right: 1px solid @inset_lighter_color;
+    border-bottom: 1px solid @inset_lighter_color;
+}
+
+.toolbar .button:active:hover {
+    background-color: @darker_color;
+}
+
+.toolbar .button:checked:hover {
+    background-color: @lighter_color;
+}
+
+/*.toolbar .button:insensitive {
+    background-color: red;
+}*/
+
+.frame {
+    background-color: @base_color;
+    border-left: 1.3px solid  @black_color;
+    border-top: 1px solid  @black_color;
+    border-right: 1px solid @outset_lighter_color;
+    border-bottom: 1px solid @outset_lighter_color;
+}
+
+.notebook {
+    background-color: @base_color;
+    color: @black_color;
+    padding: 4px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.notebook .frame {
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1px solid @black_color;
+    border-bottom: 1px solid @black_color;
+}
+
+.notebook tab:active {
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.notebook tab {
+    border: 1px outset @black_color;
+    background-color: @darker_color;
+}
+
+/* label insensitive */
+GtkLabel:insensitive {
+    color: @lighter_color;
+}
+
+/* sélection dans gnome-logs */
+.label:selected {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+/* texte combobox insensitive */
+GtkCellView:insensitive {
+    color: @darker_color;
+}
+
+.separator {
+    color: @darker_color;
+}
+
+.pane-separator {
+    background-color: @base_color; /* couleur séparateurs mobiles */
+}
+
+.view {
+    background-color: @base_color;
+    padding: 1px; /* indispensable pour l'history de gedit */
+}
+
+/* sélection dans evince */
+.view:selected {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+GtkTreeView .view {
+    background-color: @lighter_color;
+}
+
+/* les progressbars sont différentes dans les GtkTreeView (monitor) */
+
+/* modif jps le 15 août 2015 */
+GtkTreeView .progressbar {
+    border: none;
+    border: 2px outset shade(@selected_color,0.65);
+    background-color: @selected_color;
+}
+
+GtkTreeView .trough,
+GtkTreeView .trough:selected {
+    border: 2px inset @darker_color;
+    background-color: @darker_color;
+}
+
+.list-row {
+    border: none;
+}
+
+.list-row:selected,
+.list-row:selected:hover {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+.list-row:active {
+    border: none;
+    background-color: @darker_color;
+}
+
+.list-row:hover {
+    border: none;
+}
+
+GtkTextView .view {
+    background-color: @lighter_color;
+}
+
+GtkFrame {
+    padding: 5px;
+}
+
+/**********************************************/
+/* Menus */
+/**********************************************/
+
+.menubar {
+	padding-left: 3px;
+	padding-right: 10px;
+    padding-top: 1px; /* behrz */
+    padding-bottom: 1px; /* behrz */
+    border-style: none; /* behrz */
+    background-image: none; /* behrz */
+    border-left: 0.5px solid @outset_lighter_color; /* behrz */
+    border-top: 1px solid @outset_lighter_color; /* behrz */
+    border-bottom: 1.3px solid @black_color; /* behrz */
+    border-right: 1.3px solid @black_color; /* behrz */
+}
+
+.menu {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1px solid @darker_color;
+    border-bottom: 1px solid @darker_color;
+}
+
+/************
+ * menuitem *
+ ************/
+GtkTreeMenu .menuitem {
+    padding: 0;
+    border: none;
+}
+
+.menuitem,
+.menu .menuitem {
+    /* padding: 3px; */
+    padding-left: 6px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border: 1px solid  transparent;
+    border-radius: 0;
+    background-color: transparent;
+    background-image: none;
+    color: @black_color;
+}
+
+.menu .menuitem:active,
+.menu .menuitem:hover {
+    /*margin: 2px;*/
+    background-color: @selected_color;
+    border-top: 1.3px solid @base_color;
+    border-left: 1.3px solid @outset_lighter_color;
+    border-right: 1px solid @darker_color;
+    border-bottom: 1px solid @base_color;
+}
+
+.menuitem:hover, /* add jps 31 oct 2015 */
+.menu .menuitem:active,
+.menu .menuitem *:active,
+.menu .menuitem:hover,
+.menu .menuitem *:hover {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+.menu .menuitem:insensitive {
+    color: @lighter_color;
+}
+
+.menuitem.check,
+.menuitem.radio,
+.menuitem.check:hover,
+.menuitem.radio:hover,
+.menuitem.check:insensitive,
+.menuitem.radio:insensitive {
+    border-style: none;
+    background-color: transparent;
+    background-image: none;
+}
+
+.menuitem.check:active,
+.menuitem.radio:active {
+    border-style: none;
+    background-color: transparent;
+}
+
+
+/**********************************************/
+/* Scrollbars, Scales, ProgressBars */
+/**********************************************/
+
+.trough {
+    background-color: @darker_color; /* fond d'ascenseur */
+    color: @black_color; /* pourcentage de progress bar */
+    /* modif jps le 15 août 2015 */
+    padding: 2px 2px 2px 2px;
+    border-left: 1px solid #555; /* hum... XXX */ 
+    border-top: 1px solid  #555; /* hum... XXX */
+    border-right: 1px solid @base_color;
+    border-bottom: 1px solid @base_color;
+}
+
+.trough:insensitive {
+    border: 1px solid @darker_color;
+    background-color: @base_color; /* fond d'ascenseur */
+}
+
+.scale {
+    background-color: @darker_color; /* fond de slider */
+    border-left: 1px solid #555; /* hum... XXX */ 
+    border-top: 1px solid  #555; /* hum... XXX */ 
+    border-right: 1.3px solid @base_color;
+    border-bottom: 1.3px solid @base_color;
+}
+
+/* avançement coloré */
+/*.scale .left {
+    background-color: @selected_color;
+} */
+
+.slider {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-image: url("../img/scrollbar_thumb.png");
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.slider:insensitive {
+    background-image: none;
+    background-color: @darker_color;
+}
+
+.slider:active,
+.slider:hover {
+    background-color: @lighter_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+.progressbar {
+    background-color: @selected_color;
+    color: @white_color;
+    /* pour avoir un effet de relief ! On sort des 3 couleurs XXX */
+    /* border: none; */
+    border: 2px outset shade(@selected_color,0.65);
+}
+
+/**********************************************/
+/* Switch */
+/**********************************************/
+
+GtkSwitch {
+    font: bold condensed;
+}
+
+GtkSwitch.slider {
+    background-color: @base_color;
+    padding: 1px;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+GtkSwitch.trough {
+    background-color: @darker_color;
+    color: @black_color;
+}
+
+GtkSwitch.slider:active {
+    background-color: @base_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+GtkSwitch.slider:hover {
+    background-color: @lighter_color;
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+GtkSwitch.trough:active {
+    background-color: @selected_color;
+    color: @white_color;
+}
+
+GtkSwitch.slider:insensitive {
+    border: none;
+    border-right: 1.3px solid @base_color;
+    background-color: @darker_color;
+}
+
+GtkSwitch.trough:insensitive {
+    background-color: @darker_color;
+    color: @black_color;
+}
+
+/**********************************************/
+/* CheckButtons */
+/**********************************************/
+
+GtkCheckButton {
+    border: 1px solid @black_color;
+    padding: 1px;
+    color: @black_color;
+}
+
+GtkCheckButton .check,
+GtkCheckButton .radio {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
+GtkCheckButton .check:hover,
+GtkCheckButton .radio:hover {
+    background-color: @white_color;
+    color: @black_color;
+}
+
+GtkCheckButton .check:insensitive,
+GtkCheckButton .radio:insensitive {
+    border: 1px solid @base_color;
+    background-color: @lighter_color;
+    color: @darker_color;
+}
+
+GtkCheckButton .label:insensitive {
+    background-color: @base_color;
+    color: @lighter_color;
+}
+
+/**********************************************/
+/* GtkPopover */
+/**********************************************/
+
+GtkPopover {
+    border-left: 1px solid @outset_lighter_color;
+    border-top: 1px solid @outset_lighter_color;
+    border-right: 1.3px solid @black_color;
+    border-bottom: 1.3px solid @black_color;
+}
+
+GtkPopover .menuitem:hover {
+    background-color: @selected_color;
+    color: @white_color;
+    border: none; /* hum XXX */
+}
+GtkPopover .menuitem:insensitive {
+    border: none;
+}
+
+/**********************************************/
+/* Tweeks for nautilus */
+/**********************************************/
+
+NautilusWindow .view {
+    background-color: @lighter_color;
+    color: @black_color;
+}
+
+NautilusWindow .sidebar {
+    border: none;
+}
+
+NautilusWindow .sidebar .frame {
+    padding: 3pt;
+}
+
+/* from behrz patch */
+.viewport {
+  border-style: inset;
+  border-width: 2px;
+}
+
+/* sélection des icones pendant la sélection de nautilus */
+.content-view.view.rubberband,
+.view.rubberband,
+.rubberband {
+    border: 1px solid @darker_color;
+    background-color: transparent;
+}
+
